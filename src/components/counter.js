@@ -1,4 +1,11 @@
 import React, { Component } from "react";
+import { styled } from "@material-ui/styles";
+import Button from "@material-ui/core/Button";
+
+const MyButton = styled(Button)({
+  background: "linear-gradient(45deg, #7b4397   30%, #dc2430 90%)",
+  color: "white"
+});
 
 class Counter extends Component {
   state = {
@@ -46,16 +53,18 @@ class Counter extends Component {
       <div>
         <h1 className="count">{this.state.currentCount}</h1>
         <div className="buttonContainer">
-          <button onClick={this.handlePlusClick}>+</button>
-          <button onClick={this.handleDoubleClick}>Double</button>
-          <button onClick={this.handleRandomNumberClick}>Random Number</button>
-          <button onClick={this.handleHalveClick}>Halve</button>
-          <button onClick={this.handleMinusClick}>-</button>
+          <MyButton onClick={this.handlePlusClick}>+</MyButton>
+          <MyButton onClick={this.handleDoubleClick}>Double</MyButton>
+          <MyButton onClick={this.handleRandomNumberClick}>
+            Random Number
+          </MyButton>
+          <MyButton onClick={this.handleHalveClick}>Halve</MyButton>
+          <MyButton onClick={this.handleMinusClick}>-</MyButton>
         </div>
         <div>
-          <button className="resetButton" onClick={this.handleReset}>
+          <MyButton className="resetButton" onClick={this.handleReset}>
             RESET
-          </button>
+          </MyButton>
         </div>
       </div>
     );
