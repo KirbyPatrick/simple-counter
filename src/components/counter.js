@@ -6,11 +6,21 @@ class Counter extends Component {
   };
 
   handlePlusClick = () => {
-    console.log("Plus!!!");
+    this.setState(({ currentCount }) => ({
+      currentCount: currentCount + 1
+    }));
   };
 
   handleMinusClick = () => {
-    console.log("Minus!!!");
+    this.setState(({ currentCount }) => ({
+      currentCount: currentCount - 1
+    }));
+  };
+
+  handleRandomNumberClick = () => {
+    this.setState(() => ({
+      currentCount: Math.floor(Math.random() * 10000)
+    }));
   };
 
   render() {
@@ -19,6 +29,7 @@ class Counter extends Component {
         <h1>{this.state.currentCount}</h1>
         <div className="buttonContainer">
           <button onClick={this.handlePlusClick}>+</button>
+          <button onClick={this.handleRandomNumberClick}>Random Number</button>
           <button onClick={this.handleMinusClick}>-</button>
         </div>
       </div>
